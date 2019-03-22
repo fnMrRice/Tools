@@ -1,6 +1,12 @@
 # Tools
 无聊做的小工具
 
+Yande.re
+yande.re网站的爬虫
+
+EHSpider
+某站爬虫，但是最近某站重构了，爬虫失效没法用了
+
 TransformEncoding.py
 转换文本文档的编码为UTF-8
 
