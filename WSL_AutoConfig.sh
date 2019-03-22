@@ -32,42 +32,44 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
 sudo cp /etc/apt/sources.list.ustc /etc/apt/sources.list
 sudo apt update
 sudo apt upgrade -y
-sudo apt install zsh git screen python3-pip mysql-server wget ctags -y
+sudo apt install zsh git screen python3-pip python3-dev libmysqlclient-dev mysql-server wget ctags -y
 sudo apt autoremove -y
 sudo -H pip3 install --upgrade pip
 
 #安装中文
-sudo apt install fonts-powerline -y
-sudo apt install language-pack-zh-hans language-pack-zh-hans-base -y
-sudo apt install `check-language-support -l zh` -y
-sudo apt install ttf-wqy-zenhei -y
+sudo apt install language-pack-zh-hans language-pack-zh-hans-base fonts-powerline ttf-wqy-zenhei -y
+#sudo apt install `check-language-support -l zh` -y
 cd ~/
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo apt -f install
+sudo update-locale LANG=zh_CN.UTF-8
 sudo localectl set-locale LANG=zh_CN.UTF-8
 
+#Install browsers
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt -f install -y
+sudo apt install firefox -y
+
 # 安装oh my zsh
-cd ~/
-git clone https://github.com/robbyrussell/oh-my-zsh.git
-sudo ~/oh-my-zsh/tools/install.sh
-USER=whoami
-sudo chown  -hR $USER:$USER ~/*
-chsh -s $(which zsh)
-sudo chsh -s $(which zsh)
-echo "# Add default user
-DEFAULT_USER=Dora
-BULLETTRAIN_CONTEXT_DEFAULT_USER=Dora
+# cd ~/
+# git clone https://github.com/robbyrussell/oh-my-zsh.git
+# sudo ~/oh-my-zsh/tools/install.sh
+# USER=whoami
+# sudo chown -hR $USER:$USER ~/*
+# chsh -s $(which zsh)
+# sudo chsh -s $(which zsh)
+# echo "# Add default user
+# DEFAULT_USER=Dora
+# BULLETTRAIN_CONTEXT_DEFAULT_USER=Dora
 
-# Solve autojump error
-unsetopt BG_NICE
+# # Solve autojump error
+# unsetopt BG_NICE
 
-# Set 256 colors mode
-export TERM=xterm-256color
-" >> ~/.zshrc
-sudo apt install autojump
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+# # Set 256 colors mode
+# export TERM=xterm-256color
+# " >> ~/.zshrc
+# sudo apt install autojump
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 # Vim配置
 mkdir ~/.vim
@@ -175,7 +177,7 @@ Plugin 'christianrondeau/vim-base64'
 " > ~/.vimrc.bundles
 vim +BundleInstall +qall
 
-#pip install
+# pip install
 sudo -H pip3 install flask
 sudo -H pip3 install flask_script
 sudo -H pip3 install pymysql
@@ -183,14 +185,12 @@ sudo -H pip3 install flask_sqlalchemy
 sudo -H pip3 install selenium
 sudo -H pip3 install beautifulsoup4
 sudo -H pip3 install requests
+sudo -H pip3 install mysqlclient
 
 # misc
-echo "Digital Ocean 128.199.143.200
-Amazon AWS 52.196.215.160
-" > ~/myservers
-ln -s /mnt/d/WORKSPACE ~/work
-ln -s /mnt/g/BaiduNetdiskDownload ~/downloads
-ln -s /mnt/f/Study ~/software
-zsh
-alias display=DISPLAY=:0.0
-alias chrome=google-chrome-stable
+# ln -s /mnt/d/WORKSPACE ~/work
+# ln -s /mnt/g/BaiduNetdiskDownload ~/downloads
+# ln -s /mnt/f/Study ~/software
+# zsh
+# alias display=DISPLAY=:0.0
+# alias chrome=google-chrome-stable
