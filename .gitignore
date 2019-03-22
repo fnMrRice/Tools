@@ -1,5 +1,2 @@
-
-*.c~
-Caesar's Encode & Decode.c~
-*.exe
-*.o
+/.vscode
+/__pycache__

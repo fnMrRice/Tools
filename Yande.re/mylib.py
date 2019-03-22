@@ -3,6 +3,7 @@ import re,os
 import urllib.parse
 import urllib.request
 from hashlib import md5
+from http import cookiejar
 
 # MD5校检
 def md5Encode(str):
@@ -88,7 +89,7 @@ def readcookie(file,url):
 	opener = request.build_opener(handler)
 	response = opener.open(url)
 	cookie.save(ignore_discard=True, ignore_expires=True)
-	return cookie;
+	return cookie
 def findSTR(str, reg):
 	pattern = re.compile(reg)
 	lst = pattern.findall(str,re.M)

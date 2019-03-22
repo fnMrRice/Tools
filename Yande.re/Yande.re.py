@@ -2,7 +2,6 @@
 from mylib import getHTML,findSTR,dirEx,toAllowed,download,addAshow,fileREAD,checkOK,cd
 from os.path import exists as direxist
 
-# yande.re专用下载
 def downYande(Page = 1,Tag = ""):
 	Page = str(Page)
 	url = "https://yande.re/post?tags="+Tag+'&page='+Page
@@ -33,7 +32,7 @@ def downYande(Page = 1,Tag = ""):
 		if not direxist(downPATH):
 			if "e"==rating:
 				dirEx("HX")
-				downPATH = "HX\\"+downPATH
+				downPATH = os.path.join('HX',downPATH)
 			print("正在下载："+downPATH)
 			download(downURL,downPATH)
 		else:

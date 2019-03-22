@@ -1,21 +1,27 @@
 # Tools
-无聊做的东西...或许能用得上？  
+无聊做的小工具
 
-Caesar's Encode & Decode.c:  
-凯撒密码加密解密，支持使用关键词加密  
-  
-WSL_AutoConfig.sh  
-WSL的配置，手动太麻烦了...每次重装都要来一次  
-  
-Base64 Encode&Decode.cpp  
-Base64 加密/解密...纯粹拿来练手的...  
-  
-unpack_MPK.py  
-mpk文件解包，目前只知道steam上的命运石之门能用  
-  
+TransformEncoding.py
+转换文本文档的编码为UTF-8
+
+Ubuntu_AutoConfig.sh
+WSL和装的Ubuntu的配置，手动太麻烦了...每次重装都要来一次
+
+unpack_AdvHD.py
+解包AdvHD引擎的游戏，Willplus社的可用
+
+unpack_ARC.py
+解包arc后缀的文件，部分是AdvHD引擎的文件
+
+Unpack_MOE_Hypnotist.py
+解包枕边少女的资源文件
+
+unpack_MPK.py
+解包mpk后缀的文件，目前只知道steam上的命运石之门能用
+
 unpack_XP3.py  
-xp3文件解包，这个引擎的游戏大概都可以用这个来解包  
-目前用过的游戏：steam版三色绘恋，刻痕系列  
+xp3文件解包，kirikiri引擎的游戏大概都可以用这个来解包
+有一些加密过文件名，会报错
 
-Yande.re
-网站yande.re的爬虫
+wenku8_Spider.py
+轻小说文库爬虫
