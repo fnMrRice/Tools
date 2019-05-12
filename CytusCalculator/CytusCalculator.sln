@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CytusCalculator", "CytusCalculator\CytusCalculator.csproj", "{760E0B65-CB03-4F91-A185-633402A57216}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{760E0B65-CB03-4F91-A185-633402A57216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{760E0B65-CB03-4F91-A185-633402A57216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{760E0B65-CB03-4F91-A185-633402A57216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{760E0B65-CB03-4F91-A185-633402A57216}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C309C521-2602-46E5-93C7-D1E5421EB5BE}
+	EndGlobalSection
+EndGlobal

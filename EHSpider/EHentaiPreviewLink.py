@@ -58,7 +58,7 @@ if not ""==ADVANCE:
 		if A_OPTION.get('FS'):
 			if A_OPTION['FS']=='Y':# Show Expunged
 				OPTION["fs_exp"]='on'
-		r=requests.post(INNERSITE,params=FILE_SEARCH_OPTION,cookies=COOKIES,files=files,headers=HEADERS)
+		r=requests.post(INNERSITE,params=A_OPTION,cookies=COOKIES,files=files,headers=HEADERS)
 	else:# Advanced Search
 		OPTION['advsearch']=1
 		if A_OPTION.get('SGN'):# Search Gallery Name
@@ -102,7 +102,7 @@ def readEhPage():
 	HEADERS['Referer']=r.url
 	COOKIES=SetNewC(r.cookies.items())
 	#print(r.text)
-	RetHTMLs = BeautifulSoup(r.text, "html.parser").find('div',{"class": "itg"}).find_all('div',{"class":'id1'})
+	RetHTMLs = BeautifulSoup(r.text, "html.parser").find('div',{"class": "itg"}).find_all('div',{"class":'gl1t'})
 	RetHTML=[]
 	for i in RetHTMLs:
 		id2=i.find('div',{'class':'id2'}).a.contents[0]

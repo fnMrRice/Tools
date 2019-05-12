@@ -1,4 +1,7 @@
+.vs
 .vscode
 __pycache__
 eh-cookie
 EHSpider/Ehinfo.*
+CytusCalculator/CytusCalculator/obj
+CytusCalculator/CytusCalculator/bin/Debug
