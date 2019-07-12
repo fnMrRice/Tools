@@ -1,7 +1,16 @@
+# VSCode
 .vs
 .vscode
+
+# VS
+obj
+bin
+
+# Python
 __pycache__
+
+# auth
 eh-cookie
+
+# spider
 EHSpider/Ehinfo.*
-CytusCalculator/CytusCalculator/obj
-CytusCalculator/CytusCalculator/bin/Debug

@@ -1,9 +1,6 @@
 # Tools
 无聊做的小工具
 
-Yande.re
-yande.re网站的爬虫
-
 EHSpider
 某站爬虫，但是最近某站重构了，爬虫失效没法用了
 
@@ -31,3 +28,9 @@ xp3文件解包，kirikiri引擎的游戏大概都可以用这个来解包
 
 wenku8_Spider.py
 轻小说文库爬虫
+
+YZU_JWC_Spider.py
+教务处的爬虫，还没写完
+
+ZT_decompress.py
+解包从灰色的果实中提取出来的zt文件
