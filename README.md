@@ -37,3 +37,6 @@ ZT_decompress.py
 
 ipCheck.html  
 通过ip-api.com的api查询ip地址
+
+bilibili_DanmuFilter.xml  
+一些我用的Bilibili的弹幕过滤规则

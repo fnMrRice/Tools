@@ -1,0 +1,28 @@
+<filters>
+<!-- Text -->
+<item enabled="true">t=早啊</item>
+<!-- End -->
+
+<!-- Regrex -->
+<!-- 单词重复 -->
+<item enabled="true">r=/^早+$/</item>
+<item enabled="true">r=/^来+$/</item>
+<item enabled="true">r=/^哈+$/</item>
+<item enabled="true">r=/^啊+$/</item>
+<item enabled="true">r=/^(来了)+$/</item>
+<item enabled="true">r=/^\d+$/</item>
+<item enabled="true">r=/^[\!！\?？]+$/</item>
+<!-- 无意义 -->
+<item enabled="true">r=/^[Ww][Oo]?[Cc]$/</item>
+<item enabled="true">r=/^[Qq][Ww][Qq]$/</item>
+<item enabled="true">r=/^[Aa][Ww][Ss][Ll]$/</item>
+<!-- 看着烦 -->
+<item enabled="true">r=/^.*?光年是.*?单位.*?$/</item>
+<item enabled="true">r=/^(.*?提示.*?)?屏蔽.*$/</item>
+<item enabled="true">r=/^(魔鬼).*?辛苦了$/</item>
+<item enabled="true">r=/(万一|说不定)(.?中了)?呢?/</item>
+<item enabled="true">r=/拉低中奖率/</item>
+<!-- 报时 -->
+<item enabled="true">r=/^([\d一二三四五六七八九十百千万亿]+(年|月|天|小时|分钟?|秒)前?[\!\?？！\.。]?)+$/</item>
+<!-- End -->
+</filters>
