@@ -142,5 +142,6 @@ if '__main__'==__name__:
 	#	#name=f+".xp3"
 	#	#xp3_unpatch(name,".\\unpatch")
 	#xp3_unpatch('H:\\GalGame\\茂伸 -happy end-\\fgimage.xp3','E:\\GameUnpack\\MonoBeno')
-	xp3_unpatch('G:\\Game\\SteamLibrary\\steamapps\\common\\LoveSim\\data.xp3','E:\\GameUnpack\\LoveSim')
+	# xp3_unpatch('G:\\Game\\SteamLibrary\\steamapps\\common\\LoveSim\\data.xp3','E:\\GameUnpack\\LoveSim')
 	#xp3_unpatch('H:\\GalGame\\[160325] [Lose] [爱上火车] まいてつ [日本語]\\data.xp3','E:\\GameUnpack\\まいてつ')
+	xp3_unpatch("G:\\SteamLibrary\\steamapps\\common\\The Princess, the Stray Cat, and Matters of the Heart 2\\data.xp3",'G:\\GameUnpack\\NoraTo2')
