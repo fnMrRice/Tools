@@ -231,25 +231,34 @@
 
         // 函数
         let getMSG = (ip_addr) => { // 通过API获取信息
-            var xmlhttp;
-            if (window.XMLHttpRequest) { // XHR Request
-                xmlhttp = new XMLHttpRequest();
-            }
-            xmlhttp.open("GET", "http://ip-api.com/json/" + ip_addr + '?lang=' + lang + '&fields=16515071', true);
-            xmlhttp.send();
+            // var xmlhttp;
+            // if (window.XMLHttpRequest) { // XHR Request
+            //     xmlhttp = new XMLHttpRequest();
+            // }
+            // xmlhttp.open("GET", "http://ip-api.com/json/" + ip_addr + '?lang=' + lang + '&fields=16515071', true);
+            // xmlhttp.send();
             var tr = document.createElement("tr");
             tr.innerHTML = ("\
                         <td class='loading'></td>\
                         <td>"+ (ip_addr?ip_addr:'Current IP') + "</td>\
                     ") // 加载中动画
             tbody.insertBefore(tr, addAddIP);
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    var data = eval("(" + xmlhttp.responseText + ")");
-                    appendResult(data,tr);
+            // xmlhttp.onreadystatechange = function () {
+            //     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //         var data = eval("(" + xmlhttp.responseText + ")");
+            //         appendResult(data,tr);
+            //         StoredResult.push(data);
+            //     }
+            // }
+            fetch("http://ip-api.com/json/" + ip_addr + '?lang=' + lang + '&fields=16515071')
+                .then(response => response.json())
+                .then(data => {
+                    appendResult(data, tr);
                     StoredResult.push(data);
-                }
-            }
+                }).catch((error) => {
+                    const data = { 'message': error, };
+                    appendResult(data, tr);
+                });
         }
         let ChangeLanguage = (new_lang) => { // 修改网页语言
             let tr = document.createElement('tr');
