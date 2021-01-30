@@ -1,0 +1,136 @@
+<html>
+
+<head>
+    <title>Screent Test</title>
+    <style>
+        * {
+            text-align: center;
+            font-family: consolas, monospace;
+        }
+
+        #main {
+            position: fixed;
+            width: 100%;
+            font-size: 10em;
+        }
+
+        #control {
+            position: fixed;
+            width: 100%;
+            top: 10em;
+            padding-top: 2em;
+        }
+
+        #control * {
+            margin: 10px;
+            font-size: 1.2em;
+        }
+
+        #control>button {
+            width: 5em;
+            font-size: 1.5em;
+            height: 2em;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        #inputFPS {
+            padding: 0.5em;
+            font-size: 1em;
+            height: 2em;
+            width: 5em;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        0
+    </div>
+    <div id="control">
+        <label>FPS:<input id="inputFPS" type="number" value="60" /></label>
+        <br />
+        <button id="btnProcess">Start</button>
+        <button id="btnReset">Reset</button>
+    </div>
+    <div id="introduce" style="position: relative;top: 50%;">
+        使用慢动作摄像头拍摄屏幕，如果数字是连续的，那么显示器帧数达到了指定的帧数，反之没有。<br>
+        由于js的动画时间间隔问题，可能会有部分数字丢失无法显示。
+    </div>
+    <script>
+        let displayValue = 0;
+        let intervalHandle = null;
+        let fps = 60;
+        const setNumberInterval = () => setInterval(() => {
+            displayValue += 1;
+            requestAnimationFrame(() => {
+                main.textContent = displayValue;
+                main.style.color = genRandomColor();
+            });
+        }, 1000 / fps);
+        const startCount = () => {
+            intervalHandle = setNumberInterval();
+            btnProcess.textContent = "Pause";
+            btnProcess.removeEventListener("click", startCount);
+            btnProcess.addEventListener("click", pauseCount);
+        };
+        const pauseCount = () => {
+            clearInterval(intervalHandle);
+            intervalHandle = null;
+            btnProcess.textContent = "Start";
+            btnProcess.removeEventListener("click", pauseCount);
+            btnProcess.addEventListener("click", startCount);
+        };
+        const resetCount = () => {
+            pauseCount();
+            displayValue = 0;
+            requestAnimationFrame(() => {
+                main.textContent = displayValue;
+                main.style.color = '';
+            });
+        };
+        const setFPS = () => {
+            const newFPS = Number(inputFPS.value)
+            if (newFPS <= 0 || newFPS > 240) {
+                alert("1 <= fps <= 240");
+                inputFPS.value = fps;
+                return;
+            };
+            fps = newFPS;
+            if (btnProcess.textContent === "Pause") {
+                clearInterval(intervalHandle);
+                intervalHandle = setNumberInterval();
+            }
+        };
+        const inputFilterNumber = (elem, ev) => {
+            const filter = "0123456789";
+            if (ev.key.length === 1 && filter.indexOf(ev.key) === -1) {
+                ev.preventDefault();
+            }
+            if (ev.keyCode == 13) elem.blur();
+        };
+    </script>
+    <script>
+        const main = document.getElementById("main");
+        const btnProcess = document.getElementById("btnProcess");
+        const btnReset = document.getElementById("btnReset");
+        const inputFPS = document.getElementById("inputFPS");
+        btnProcess.addEventListener("click", startCount);
+        btnReset.addEventListener("click", resetCount);
+        inputFPS.addEventListener("change", setFPS);
+        inputFPS.addEventListener("keydown", (ev) => { inputFilterNumber(inputFPS, ev) });
+    </script>
+    <script>
+        function genRandomColor() {
+            const C = () => {
+                let r = Math.floor(Math.random() * 196).toString(16);
+                while (r.length < 2) r = '0' + r;
+                return r;
+            };
+            return "#" + C() + C() + C();
+        }
+    </script>
+</body>
+
+</html>
